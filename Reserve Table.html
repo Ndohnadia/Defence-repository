@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve Table</title>
+    <style>
+   body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* captivating background*/
+   }
+   .container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+   }
+   .container h2 {
+    margin-bottom: 20px;
+   }
+   .btn {
+    display: inline-block;
+    margin: 10px;
+    padding:15px 25px;
+    font-size: 1em;
+    color: white;
+    background-color: #4CAF50;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+   }
+   .btn:hover {
+    background-color: #45a049;
+   }
+   .form-container {
+    display: none;
+    margin-top: 20px;
+    text-align: left;
+   }
+   .form-container form {
+    display: flex;
+    flex-direction: column;
+   }
+   .form-container form label {
+    margin: 10px 0 5px;
+   }
+   .form-container form input, .form-container form select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+   }
+   .form-container form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+   }
+     </style> 
+     <script>
+        function toggleForm() {
+            const formContainer =
+document.getElementById('form-container');
+       if (formContainer.style.display === 'none' || formContainer.style.display ==='') {
+           formContainer.style.display = 'block';
+       } else {
+            formContainer.style.display = 'none';
+        }
+    }
+     </script>
+     </head>
+     <body>  
+       <div class="container">
+        <h2>Reserve Table</h2>
+        <button class="btn" onclick="toggleForm()">Select Restaurant</button>
+        <button class="btn" onclick="toggleForm()">Book Reservation</button>
+        </div>
+        <div id="form-container" class="form-container">
+            <form id="reservation-form">
+                <h3>Reservation Form</h3>
+                <label for="restaurant">Restaurant:</label>
+               <select id="restaurant" name="restaurant">
+                <option value="restaurant1">Restaurant 1</option>
+                <option value="restaurant2">Restaurant 2</option>
+                <!--Add more options needed-->
+               </select>
+               <label for="name">Name:</label>
+               <input type="text" id="name" name="name" required>
+               <label for="email">Email:</label>
+               <input type="email" id="email" required>
+               <label for="date">Date:</label>
+               <input type="date" id="date" name="date" required>
+               <label for="time">Time:</label>
+               <input type="time" id="time" name="time" required>
+               <label for="guests">Number of Guests:</label>
+               <input type="number" id="guests" name="guests" required>
+               <input type="submit" value="Reseve">
+            </form>
+            <form id="Payment-form"  style="margin-top: 20px;">
+                <h3>Payment Form</h3>
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number"  name="card-number" required>
+                <label for="expiry-date">Expiry Date:</label>
+                <input type="month" id="expiry-date" name="expiry-date" required>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+                <input type="submit" value="pay">
+            </form>
+        </div>
+</body>
+</html>

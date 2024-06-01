@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Registration</title>
+    <style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: blueviolet;
+    }
+    
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+        text-align: center;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        width: 100%;
+        background-color: #ACAF50;
+        color: white;
+        padding: 14px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+    <h2>customer Registration</h2>
+    <form id="customerForm">
+        <input type="text" id="customerName" placeholder="Your Name" required>
+        <input type="email" id="customerEmail" placeholder="Your Email" required>
+        <input type="password" id="customerPassword" placeholder="Password" required>
+        <input type="contact" id="customerContact" placeholder="Contact"  required>
+        <input type="submit" value="Register">
+        </form>
+    </div>
+    <div class="container">
+        <h2>Restaurant Owner Registration</h2>
+        <form id="restaurantOwnerForm">
+          <input type="text" id="ownerName" placeholder="Your Name" required>
+          <input type="email" id="ownerEmail" placeholder="Your Email" required>
+          <input type="password" id="ownerPassword" placeholder="Password" required>
+          <input type="text" id="restaurantName" placeholder="Restaurant Name" required>
+          <input type="text" id="restaurantType" placeholder="Restaurant Type" required>
+          <input type="text" id="restaurantLocation" placeholder="Location" required>
+          <input type="text" id="restaurantContact" placeholder="Contact Number" required>
+          <input type="submit" value="Register">
+        </form>
+      </div>
+      <div class="container">
+        <h2>Restaurant Menu</h2>
+        <div id="menu">
+          <!-- Menu items will be displayed here -->
+        </div>
+      </div>
+      
+      <script>
+        let menuItems = [
+  { name: "Ndole and Yam", price: 1500 },
+  { name: "Fried Rice", price: 2500},
+  { name: "Achu", price: 3000 }
+];
+
+// Customer registration form
+document.getElementById("customerForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const name = document.getElementById("customerName").value;
+  const email = document.getElementById("customerEmail").value;
+  const password = document.getElementById("customerPassword").value;
+
+  // Perform customer registration
+  registerCustomer(name, email, password);
+
+  // Reset form
+  document.getElementById("customerForm").reset();
+});
+
+// Restaurant owner registration form
+document.getElementById("restaurantOwnerForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const ownerName = document.getElementById("ownerName").value;
+  const ownerEmail = document.getElementById("ownerEmail").value;
+  const ownerPassword = document.getElementById("ownerPassword").value;
+  const restaurantName = document.getElementById("restaurantName").value;
+  const restaurantType = document.getElementById("restaurantType").value;
+  const restaurantLocation = document.getElementById("restaurantLocation").value;
+  const restaurantContact = document.getElementById("restaurantContact").value;
+
+  // Perform restaurant owner registration
+  registerRestaurantOwner(ownerName, ownerEmail, ownerPassword, restaurantName, restaurantType, restaurantLocation, restaurantContact);
+
+  // Reset form
+  document.getElementById("restaurantOwnerForm").reset();
+});
+
+// Display menu items
+function displayMenu() {
+  const menu = document.getElementById("menu");
+
+  menu.innerHTML = "<h3>Menu</h3>";
+
+  menuItems.forEach(item => {
+    const menuItem = document.createElement("div");
+    menuItem.classList.add("menu-item");
+    menuItem.innerHTML = `<span>${item.name}</span><span>$${item.price.toFixed(2)}</span>`;
+    menu.appendChild(menuItem);
+  });
+}
+
+displayMenu();
+
+function registerCustomer(name, email, password) {
+  // Simulate customer registration
+  console.log("Customer Registered:");
+  console.log("Name:", name);
+  console.log("Email:", email);
+  console.log("Password:", password);
+}
+
+function registerRestaurantOwner(ownerName, ownerEmail, ownerPassword, restaurantName, restaurantType, restaurantLocation, restaurantContact) {
+  // Simulate restaurant owner registration
+  console.log("Restaurant Owner Registered:");
+  console.log("Owner Name:", ownerName);
+  console.log("Owner Email:", ownerEmail);
+  console.log("Owner Password:", ownerPassword);
+  console.log("Restaurant Name:", restaurantName);
+  console.log("Restaurant Type:", restaurantType);
+  console.log("Location:", restaurantLocation);
+  console.log("Contact Number:", restaurantContact);
+}
+</script>
+</body>
+</html>

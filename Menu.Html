@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('./images/food.jpg.jpg');
+            background-size: auto;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .restaurant-list, .menu-section, .reservation-form, .payment-form {
+            margin: 20px 0;
+        }
+        .restaurant-list select, .restaurant-list button, .reservation-form input, .payment-form input, .Update-form input {
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .menu-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .menu-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            width: 30%;
+            margin: 10px;
+            text-align: center;
+        }
+        .menu-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .menu-item h4 {
+            margin: 10px 0;
+        }
+        .menu-item button {
+            padding: 10px;
+            margin: 10px 5px;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="restaurant-list">
+        <h2>Select a Restaurant</h2>
+        <label for="restaurants">Choose a restaurant:</label>
+        <select id="restaurants">
+            <option value="restaurant1">TFC</option>
+            <option value="restaurant2">njeiforbi</option>
+            <option value="restaurant3">jamrock</option>
+            <!-- Add more restaurant options here -->
+        </select>
+        <button onclick="showRestaurantMenu()">View Menu</button>
+    </div>
+
+    <div id="menu" class="menu-section" style="display: none;">
+        <h2>Menu</h2>
+        <div id="restaurant1-menu" style="display: none;">
+            <div class="menu-item">
+                <img src="./images/meal1.jpg" alt="Meal 1">
+                <h4>Meal 1</h4>
+                <p>Description of Meal 1</p>
+                <span>$10</span>
+                <button onclick="Quantity('Meal 1')">Quantity</button>
+                <button onclick="processPayment('Meal 1')">Pay Now</button>
+            </div>
+            <div class="menu-item">
+                <img src="./images/meal2.jpg" alt="Meal 2">
+                <h4>Meal 2</h4>
+                <p>Description of Meal 2</p>
+                <span>$12</span>
+                <button onclick="Quantity('Meal 2')">Quantity</button>
+                <button onclick="processPayment('Meal 2')">Pay Now</button>
+            </div> 
+            <!-- Add more menu items for Restaurant 1 here -->
+        </div>
+        <div id="restaurant2-menu" style="display: none;">
+            <div class="menu-item">
+                <img src="./images/meal3.jpg" alt="Meal 3">
+                <h4>Meal 3</h4>
+                <p>Description of Meal 3</p>
+                <span>$15</span>
+                <button onclick="Quantity('Meal 3')">Quantity</button>
+                <button onclick="processPayment('Meal 3')">Pay Now</button>
+            </div>
+            <div class="menu-item">
+                <img src="./images/meal4.jpg" alt="Meal 4">
+                <h4>Meal 4</h4>
+                <p>Description of Meal 4</p>
+                <span>$18</span>
+                <button onclick="Quantity('Meal 4')">Quantity</button>
+                <button onclick="processPayment('Meal 4')">Pay Now</button>
+            </div>
+            <!-- Add more menu items for Restaurant 2 here -->
+        </div>
+        <div id="restaurant3-menu" style="display: none;">
+            <div class="menu-item">
+                <img src="./images/meal5.jpg" alt="meal 5">
+                <h4>Meal 5</h4>
+                    <p>Description of Meal 5</p>
+                    <span>$20</span>
+                    <button onclick="Quantity('Meal 5')">Quantity</button>
+                    <button onclick="processPayment('Meal 5')">Pay Now</button>
+            </div>
+            <div class="menu-item">
+                <img src="./images/meal6.jpg" alt="meal 6">
+                <h4>meal 6</h4>
+                <p>Description of Meal 6</p>
+                <span>$19</span>
+                <button onclick="Quantity('Meal 6')">Quantity</button>
+                <button onclick="processPayment('Meal 6')">Pay Now</button>
+    </div>
+        <div id="Update Menu" class="Update-Menu-section" style="display: none;">
+            <h2>Update-Menu</h2>
+            
+        </div>
+</div>
+
+    <div id="reservation" class="reservation-form" style="display: none;">
+        <h2>Reservation</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="Contact">Contact:</label>
+            <input type="Contact" id="Contact" name="email" required><br>
+            <label for="date">Select date:</label>
+            <input type="date" id="date" name="date" required><br>
+            <label for="time">Select time:</label>
+            <input type="time" id="time" name="time" required><br>
+            <input type="submit" value="Reserve">
+        </form>
+    </div>
+
+    <div id="payment" class="payment-form" style="display: none;">
+        <h2>Payment</h2>
+        <form>
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" required><br>
+            <label for="expiryDate">Expiry Date:</label>
+            <input type="text" id="expiryDate" name="expiryDate" required><br>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required><br>
+            <input type="submit" value="Pay Now">
+        </form>
+    </div>
+</div>
+
+<script>
+    function showRestaurantMenu() {
+        var restaurant = document.getElementById("restaurants").value;
+        var menu = document.getElementById("menu");
+        menu.style.display = "block";
+
+        var restaurant1Menu = document.getElementById("restaurant1-menu");
+        var restaurant2Menu = document.getElementById("restaurant2-menu");
+        var restaurant3Menu = document.getElementById("restarant3-menu");
+    /*
+        restaurant1Menu.style.display = "none";
+        restaurant2Menu.style.display = "none";
+    */
+
+        if (restaurant === "restaurant1") {
+            restaurant1Menu.style.display = "block";
+            restaurant2Menu.style.display = "none";
+        } else if (restaurant === "restaurant2") {
+            restaurant1Menu.style.display = "none";
+            restaurant2Menu.style.display = "block";
+    }
+
+    function reserveTable(meal) {
+        var reservation = document.getElementById("reservation");
+        reservation.style.display = "block";
+    }
+
+    function processPayment(meal) {
+        var payment = document.getElementById("payment");
+        payment.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
+
+      
+      

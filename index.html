@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Restaurant Menu Listing site</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image:url(./images/landing.jpg);
+        }
+        header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+        }
+         nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /*.header-section {
+            background: linear-gradient(to right, #ff7e5f,#feb47b);
+            padding: 40px;
+            text-align: center;
+            color:white;
+        }*/
+        section {
+          padding: 20px;
+          margin: 10px 0;
+          background-color: white;
+          box-shadow: 0, 4px, 8px rgba(0,0,0,0.1);
+          border-radius: 10px;
+        }
+        .meal-type .meal, .div, .fast-food-drinks .items, .restaurants
+     .restaurants  .order .order-item {
+        display: inline-block;
+        width: 200px;
+        margin: 10px;
+        padding: 10px;
+        border:1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: background-color 0.3s, transform 0.3s;
+        position: fixed;
+        text-align: center;
+    }
+     .meal-type .meal:hover, .fast-food-drinks .item:hover, .restaurants .restaurants:hover,
+  .order .order-item:hover {
+                background-color: #ff7e5f;
+                transform: scale(1.05);
+    }
+      .meal-type .meal:hover .name, .fast-food-drinks .item:hover .name, .restaurants .restaurants:hover .name, .order .order-item:hover .name {
+        display:block;
+   }
+    .name {
+        display: none;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        background: rgba(0,0,0,0.7);
+        color:white;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    .slideshow img {
+        width: 20%;
+        border-radius: 10px;
+    }
+     .delivery img {
+        width: 50%;
+        border-radius: 50%;
+    } 
+    .ratings button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10PX 20px;
+        margin: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .ratings button:hover {
+        background-color: #45a049;
+    } 
+    footer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px;
+        background: url(./images/footer-illustration.png) no-repeat Center 
+         center;
+         background-size: cover;
+        color: black;
+    }
+    .footer-logo  {
+       width: 50px;
+       margin: 0 10px;
+       color: black;
+    }
+    .order-form {
+       max-width: 400px;
+       margin: 0 auto;
+       padding: 20px;
+       border: 1px solid #ddd;
+       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+       background-color: white;
+    }
+    .order-form h3 {
+        margin-bottom: 20px;
+    }
+    .order-form label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+    .order-form input, .order-form select, .order-form button {
+           width: 100%;
+           padding: 10px;
+           margin-bottom: 10px;
+           border-radius: 5px;
+    }
+    .order-form button {
+        background-color: #333;
+        color: white;
+        border: none;
+    }
+
+</style>
+</head>
+<body>
+
+<header>
+        <div class="logo">Restaurant Logo</div>
+            <img src="./images/Logo-PNG.png" alt="Logo-PNG.png" style="height: 100px;">
+        <nav>
+        <a href="#Home">home</a>
+        <a href="Register .html">register</a>
+        <a href="Menu.Html">Menu</a>
+        <a href="Reserve Table.html">reserve table</a>
+        <a href="update Menu.html">update menu</a>    
+        </nav>
+</header>
+
+    <secion class="header-section">
+        <h1>Welcome to Real-Time Restaurant Menu Listing Site</h1>
+    </secion>
+
+    <section class="meal-type">
+        <h2>meal Types</h2>
+        <div>
+        <div class="meal">
+            <img src="./images/hot pot.jpg.png" alt="hot pot.jpg.jpg" style="width: 40%; border-radius: 4px;">
+           <p class="name">hot pot.jpg.png</p>
+           <p>Delicious Meal</p>
+        </div>
+         <div class="meal">
+          <img src="./images/food.jpg.jpg" alt="food.jpg.jpg" style="width: 40%; border-radius: 8px;">
+          <p class="name">food .jpg.jpg</p>
+          <p>Delicious Meal</p>
+          </div>
+          <!--Add more meals as needed-->
+    </section>
+
+    <section class="fast-food-drinks">
+        <h1>Fast Food and Drinks</h1>
+        <div class="item">
+           <img src="./images/fastFood1.jpg" alt="Fast Food 1" style="width: 40%; border-radius: 1px;">
+            <p class="name">Fast Food 1</p>
+            <p>Yummy Fast Food 1 Description</p>
+            </div>
+            <div class="item">
+                <img src="./images/drink1.jpg" alt="Drink 1" style="width: 40%; border-radius: 10px;">
+                <p class="name">Drink 1</p>
+                <p>Refreshing Drink 1</p>
+            </div>
+            <!--Add more fast foods and drinks as needed-->
+    </section>
+
+    <section class="slideshow">
+          <h2>Fast Food, Drinks, chicken, and Rice</h2>
+          <img src="./images/meal4.jpg" alt="slideshow image 1">
+    </section>
+<section class="Testemonials">
+    <h2>.Customer Testemonials and Reviews</h2>
+    <p>Testemonial 1: This is the best resturant I've ever visited!</p>
+    <p>Testemonial 2: Amazing food and great services.</p>
+    <!--Add more testimonials as needed-->
+    </section>
+
+    <section class="delivery">
+       <h2>delivery Information</h2>
+       <img src="./images/delivery-boy.svg" alt="Delivery Boy">
+       <p> Our delivery boys are always on time and ensure your food arrives hot and fresh.</p>
+       <img src="./images/delivery-banner-bg.png" alt="delivery-banner-bg" style="width: 50%; border-radius: 1opx; margin-top: 10px;">
+       <img src="./images/sale-shape-red.png" alt="sale-shape-red" style="width: 20%; border-radius: 10px; margin-top: 10px;">
+    </section>
+
+    <section class="ratings">
+        <h2>Ratings</h2>
+        <button>Rate Us</button>
+        <button>Leave a Review</button>
+    </section>
+<section class="restaurants">
+  <h2>Our Restaurant</h2>
+  <div class="restaurant">
+    <img src="./images/house.jpg.jpeg" alt=" house.jpg.jpg" style="width: 40%; border-radius: 10px;">
+    <p> Popular Restaurant Description</p>
+  </div>
+    <div class="restaurant">
+        <img src="./images/rest.jpg.jpeg" alt="rest.jpg.jpg" style="width: 30%; border-radius: 10px;">
+        <p class="name">rest.jpg.jpg</p>
+        <p>Prestige</p>
+    </div>
+    <!--Add more restaurants-->
+</section>
+
+<section class="order" id="order">
+    <h2>Order Now</h2>
+    <form class="order-form">
+        <h3>Order Form</h3>
+        <label for="Customer-name">Name:</label>
+        <input type="text" id="Customer-name" name="Customer-name" required>
+        <label for="restaurant-select">Select Restaurant:</label>
+        <select id="restaurant-select" name="restaurant-select" required>
+         <option value="restaurant1">Restaurant 1</option>
+         <option value="restaurant2">Restaurant 2</option>
+         <option value="restaurant3">Restaurant 3</option>
+         </select>
+
+        <label for="meal-select">Select Meal:</label>
+        <select id="meal-select" name="meal-select" required>
+               <option value="meal1">Meal 1</option>
+               <option value="meal2">Meal 2</option>
+               <option value="Meal3">Meal 3</option>
+        </select>
+           <label for="quantity">Quantity:</label>
+           <input type="number" id="quantity" name="quantity" min="1" required>
+            <label for="payment-method">payment method:</label>
+            <select id="payment-method" name="payment-method" required>
+                 <option value="credit-card">Credit Card</option>
+                 <option value="paypal">Paypal</option>
+                 <option value="cash-on-delivery">Cash on Delivery</option>
+            </select>
+
+              <button type="submit">Submit Order</button>
+              </form>
+              </section>
+<footer>
+    <img src="./images/logo_white.png" alt=" Logo white" class="footer-logo">
+    <img src="./images/logoBig.png" alt=" logo Big" class="footer-logo">
+    <img src="./images/twitter.png" alt="twitter">
+    <img src="./images/facebook.png" alt="facebook">
+    <img src="./images/pinterest.png">
+    <P>&copy: 2024 Real-Time Menu Listing Site</P>
+</footer>
+
+</body>
+</html>

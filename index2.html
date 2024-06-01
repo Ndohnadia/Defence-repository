@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><title> Welcome Real-Time Resturant Menu  Site</title>
+    <link rel="stylesheet"  href="style.css" />
+    <link rel="stylesheet"  href="https://stackpath.boostrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?
+    family=poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet"></title>
+</head>
+<body>
+<section class="header">
+<nav>
+<a href="index.html"><img src="img/Logo-PNG.png" alt=""></a>
+<div class="nav-links"  id="navlinks"> 
+    <i class="fa fa-times" onclick="hideMenu()"></i>
+    <ul>
+        <a href="#">Home</a>
+        <a href="Register .html">Register</a>
+        <a href="Menu.Html">Menu</a>
+        <a href="./Add to cart.html">Add to Cart</a>
+        <a href="#">Reservation</a>
+        
+    </ul>
+</div>
+<i class="fa fa-bars" onclick="showMenu()"></i>
+</nav>
+<div class="text-box">
+    <h1> Welcome Real-Time Resturant Menu Site</h1>
+    <p>Registering your resturant to a web based platform is the most convinient
+     because it helps you to gain customers,<br> by providing efficient services and very cost efficient too
+    </p> 
+    <a href="" class="hero-btn">visit us to know More</a>
+    </div>
+
+    </section>
+ <!---------Services----->
+
+ <section class="Services">
+     <h1>Services We Offer</h1>
+     <p>We offer free registering and we are available all times </p>
+
+     <div class="row">
+        <div class="Services-col">
+            <h3>Intermediate</h3>
+            <p>We are out to help and to meet up with the demands of the users,
+                never be discourage for this platform is out to make sure you
+                are able to give out to help and to meet up with the demands of the users,
+                never be discouraged. This platform is out to make sure you
+                are able to get the kind of meals you ask for.et the kind of meal you ask for.
+            </p>
+     </div>
+     <div class="Services-col">
+     <h3>Menu updates</h3>
+     <p> We update our website for new features at quick intervals,
+      for you not to be bored when on our site. The site will be an interesting
+      one for you.</p>
+</div>
+<div class="Services-col">
+<h3>Customer Service</h3>
+<p> Our Customer care service is very vibrant we attent to you
+ with love and are ready to address any problem 
+ you have.</p> 
+ </div>
+
+</section>
+
+<!--------purpose------->
+
+<section class="purpose">
+<h1>The main purpose </h1>
+<p>Our main purpose is to make food delivery and food ordering online, reservations to be easy 
+    and to save time and more.
+</p>
+
+<div class="row">
+    <div class="meals-col">
+        <img src="img/food.jpg.jpg"
+        width="200"
+        height="300">
+        <div class="layer">
+            <h3>food</h3>
+        </div>
+    </div>
+    <div class="meals-col">
+        <img src="img/paster.jpg.jpg"
+        
+        width="200"
+        height="300">
+        <div class="layer">
+            <h3>paster</h3>
+</div>
+</div>
+<div class="meals-col">
+    <img src="img/hot pot.jpg.png"
+    width="200"
+    height="300">
+    <div class="layer">
+        <h3>hot pot</h3>
+        </div>
+        </div>
+</section>
+
+<!-------Facilities------>
+<section class="Facilities">
+<h1>Our Facilities</h1>
+<p>We have so many facilities installed for you when using our platform.</p>
+
+<div class="row">
+<div class="Facilities-col">
+    <img src="img/Central AC Hall Interior-2.jpg.jpg"
+    width="200"
+    height="300">
+    <h3>Central AC Hall</h3>
+    <p>This will help for relaxiation and giving you a sure assurance that each resturant regisring on our platform
+        has a good and well funished AC Hall.
+    </p>
+</div>
+<div class="Facilities-col">
+    <img src="img/Resturant interior.jpg.jpeg"
+    width="200"
+    height="300">
+    <h3>Resturant interior</h3>
+    <p>This will help for relaxiation and  you a sure  to enjoy the best meal ever  on our platform.
+</div>
+<div class="Facilities-col">
+<img src="img/photo.jpg.jpg"
+width="200"
+height="300">
+<h3>Good communication</h3>
+<p>This will help for relaxiation and you will have the chance to communicate and fun with your friends.
+ </p>
+ </div>
+ </div>
+
+</section>
+
+<!---------Testemonials--------->
+<section class="Testemonials">
+<h1>What our users say</h1>
+<p>It is a great site , its user friendly and efficient. The meals you have on this platform; they are great 
+    and we are happy visiting your site.
+</p>
+</section>
+
+
+
+
+
+
+
+
+ <!-----------JavaScript for Toggle Menu-------->
+    <script>
+
+     var navlinks = document.getElementById("navlinks");
+
+     function showMenu(){
+         navlinks.style.right = "0";
+     }
+     function hideMenu(){
+        navlinks.style.right = "-200px";
+     }
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.top-half {
+    width: 100%;
+    height: 50vh;
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* linear gradient*/
+}
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0,0,0,0.5); 
+}
+.nav-bar a {
+    color:white;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+.nav-bar a:hover {
+    background-color: #575757;
+}
+.content {
+    width: 80%;
+    margin-top: -50px; /* overlapping the top half */
+}
+.section-title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2em;
+    color: #333;
+}
+.restaurant-section, food-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.restaurant, .food {
+    position: relative;
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    width: 50%;
+    cursor: pointer;
+    transition: transform 0.3s;
+    
+}
+.restaurant:hover, .food:hover {
+    transform: scale(1.05);
+}
+.restaurant img, .food  img {
+    width: 50%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+.restaurant .info, .food .info {
+    padding: 10px;
+}
+
+.restaurant .name, .food .name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    color:white;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.restaurant:hover .name, .food:hover .name {
+    opacity: 1;
+}
+.footer {
+    width: 100%;
+    padding: 20px;
+    background: #333;
+    color:white;
+    text-align: center;
+}
+.footer button {
+    background-color: #4CAF50;
+    color:white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+.footer button:hover {
+    background-color: #45a049;
+}
+@media (max-width: 768px){
+    .restaurant, .food {
+        width: 100%;
+    }
+}
+   </style>     
+ <body>
+    <h1>Welcome to our Real-Time Menu Listing Site</h1>
+    <div class="nav-bar">
+    <a href="#home">Home</a>
+    <a href="Register .html">Register</a>
+    <a href="Menu.Html">Menu</a>
+    <a href="update Menu.html">Update Menu</a>
+    <a href="Reserve Table.html"> Reserve Table</a>
+    </div>       
+    <div class="top-half"></div>
+
+    <div class="content">
+        <h2 class="section-title">Restaurants</h2>
+        <div class="restaurant-section">
+            <div class="restaurant">
+            <img src="./images/Resturant1.jpg" alt="Restaurant 1">
+
+               <div class="name">Restaurant 1</div>
+               <div class="info">Description of Restaurant 1</div>
+        </div>
+    </div>
+    <div class="restaurant">
+         <img src="./images/Restaurant2.jpg" alt="Reservation 2">
+
+         <div class="name">Restaurant 2</div>
+         <div class="info">Description of Restaurant 2</div>
+    </div>
+    <!--Add more restaurant div as needed-->
+</div>
+<h2 class="section-title">Food</h2>
+<div class="food-section">
+    <div class="food">
+        <img src="./images/meal1.jpg" alt="plantaian">
+        <div class="name">plantain</div>
+
+        <div class="info">Description of plantain</div>
+    </div>
+    <div class="food">
+        <img src="./images/meal2.jpg" alt="Fufu Corn">
+        <div class="name">Fufu Corn</div>
+
+        <div class="info">Description of Fufu</div>
+    </div>
+    <!-- Add more Meals-->
+</div>
+</div>
+<div class="footer">
+    <button>Rate us</button>
+    <button>Leave A Review</button>
+    <!--Add more buttons if needed-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
