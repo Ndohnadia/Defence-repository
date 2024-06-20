@@ -3,21 +3,728 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: rgba(51, 51, 51, 0.8);
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar img {
+            height: 50px;
+            cursor: pointer;
+        }
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 70px;
+            left: 10px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #444;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .main {
+            margin-top: 70px;
+        }
+        .background-image {
+            width: 100%;
+            height: 50vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .background-image .logo {
+            position: absolute;
+            bottom: 20px;
+            left:  20px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .meals {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .meal {
+            width: 30%;
+            text-align: center;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        .meal:hover {
+            transform: scale(1.05);
+        }
+        .popular-meals {
+            background: url('./images/chickenPizza.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 20px;
+        }
+        .popular-meal {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px;
+            text-align: center;
+            width: 30%;
+        }
+        .popular-meals-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        
+        .delivery-section {
+            background: url('./images/chickenBurger.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 50px 20px;
+            color: white;
+            text-align: center;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #ddd;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="home-image.jpg" alt="Home" onclick="window.location.href='#home'">
+    </div>
+
+    <div class="sidebar">
+        <a href="Register .html">Register</a>
+        <a href="Reserve Table.html">Reserve Table</a>
+        <a href="Menu.Html">Menu</a>
+        <a href="Order.html">Order</a>
+        <a href="update Menu.html">Update Menu</a>
+    </div>
+
+    <div class="main" id="home">
+        <div class="background-image" style="background-image: url('./images/landing.jpg');">
+            <div class="logo" style="text-align: center;">Restaurant Logo<br>Restaurant Tagline </div>
+            <img src="./images/logo_white.png" >
+        </div>
+
+        <div class="section meals">
+            <div class="meal">
+                <h3>Breakfast</h3>
+                <img src="./images/breakfast.jpg">
+            </div>
+            <div class="meal">
+                <h3>Lunch</h3>
+                <img src="./images/lunch.jpg">
+            </div>
+            <div class="meal">
+                <h3>Dinner</h3>
+                <img src="./images/dinner.jpg">
+                
+            </div>
+        </div>
+
+        <div class="section popular-meals">
+            <div class="popular-meals-container">
+                <div class="popular-meal">
+                    <h4>ekwang</h4>
+                    <img src="./images/meal4.jpg" alt="Meal" style="width: 50%; border-radius: 5px;">
+                    <p>Tasty Meal.</p>
+                </div>
+                <div class="popular-meal">
+                    <h4>eru and garri</h4>
+                    <img src="./images/meal3.jpg" alt="Meal" style="width: 50%; border-radius: 5px;">
+                    <p>food is good for the health.</p>
+                </div>
+                <div class="popular-meal">
+                    <h4>fufu corn</h4>
+                    <img src="./images/ordermeal2.jpg" alt="Meal" style="width: 50%; border-radius: 5px;">
+                    <p>African delicacy called so Delicoius just order and have a taste.</p>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section delivery-section">
+            <h2>Delivery Service</h2>
+            <img src="images/delivery-boy.svg" style="width: 20%; border-radius: 5px;">
+            <p>Details about the delivery service.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Real-time resturant menu Listing site.<br> All rights reserved.</p>
+
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar img {
+            height: 50px;
+            cursor: pointer;
+        }
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 70px;
+            left: 10px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #444;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .main {
+            margin-top: 70px;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 50px;
+        }
+        .background-image {
+            width: 100%;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-bottom: 50px;
+        }
+        .background-image .logo {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .meals {
+            display: flex;
+            justify-content: space-around;
+        }
+        .meal {
+            width: 30%;
+            text-align: center;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        .meal:hover {
+            transform: scale(1.05);
+        }
+        .popular-meals {
+            background: url('./images/landing.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 20px;
+        }
+        .popular-meal {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px;
+            text-align: center;
+            width: 30%;
+        }
+        .delivery-section {
+            background: url('./images/chickenBurger.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 50px 20px;
+            color: white;
+            text-align: center;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #ddd;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="home-image.jpg" alt="Home" onclick="window.location.href='#home'">
+    </div>
+
+    <div class="sidebar">
+        <a href="#register">Register</a>
+        <a href="#reserve">Reserve Table</a>
+        <a href="#menu">Menu</a>
+        <a href="#order">Order</a>
+        <a href="#update">Update Menu</a>
+    </div>
+
+    <div class="main" id="home">
+        <div class="background-image" style="background-image: url('./images/landing.jpg');">
+            <div class="logo">Restaurant Logo<br>Restaurant Tagline</div>
+        </div>
+
+        <div class="section meals">
+            <div class="meal">
+                <h3>Breakfast</h3>
+            </div>
+            <div class="meal">
+                <h3>Lunch</h3>
+            </div>
+            <div class="meal">
+                <h3>Dinner</h3>
+            </div>
+        </div>
+
+        <div class="section popular-meals">
+            <div class="popular-meal">
+                <h4>Meal Name</h4>
+                <img src="./images/meal4.jpg" alt="Meal" style="width: 100%; border-radius: 5px;">
+                <p>Meal description goes here.</p>
+            </div>
+            <div class="popular-meal">
+                <h4>Meal Name</h4>
+                <img src="./images/meal5.jpg" alt="Meal" style="width: 100%; border-radius: 5px;">
+                <p>Meal description goes here.</p>
+            </div>
+            <div class="popular-meal">
+                <h4>Meal Name</h4>
+                <img src="./images/meal6.jpg" alt="Meal" style="width: 100%; border-radius: 5px;">
+                <p>Meal description goes here.</p>
+            </div>
+        </div>
+
+        <div class="section delivery-section">
+            <h2>Delivery Service</h2>
+            <p>Details about the delivery service.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Restaurant Name. All rights reserved.</p>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real-Time Restaurant Menu Listing site</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar {
+        background-color: #333;
+        overflow: hidden;
+      }
+      .navbar a {
+        float: right;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      .navbar a hover {
+        background-color: #ddd;
+        color: black;
+      }
+      .header, footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #f4f4f4;
+      }
+      .main {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+      }
+      .main  img {
+        width: 10%;
+        height: auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .bg-half {
+        background: url('./images/landing.jpg') no-repeat center center/cover;
+           height: 50vh;
+      }
+    </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="home.html">Home</a>
+            <a href="Register .html">Register</a>
+            <a href="Menu.Html">Menu</a>
+            <a href="order.Html">Order</a>
+            <a href="update Menu.html">Update Menu</a>
+            <a href="Reserve Table.html">Reserve Table</a>
+        </div>
+          <div class="header bg-half">
+             <h1>Welcome to Real-Time Restaurant Menu Listing Site</h1>
+          </div>
+          <div class="main">
+            <img src="./images/chickenPizza.jpg" alt="Meal Image">
+            <div class="meal Description" style="font-size: small;">
+                <h1> Delicoius meal Taste good and <br>healthy for your system</h1>
+            </div>
+            <img src="./images/Restaurant2.jpg" alt="drink1 Image">
+            <div class="Meal Description">
+                <h2>Confortable Restaurant for all ,<br> provides you with the <br> best confort  for all</h2>
+            </div>
+            <img src="./images/hot pot.jpg.png" alt="Meal Image">
+            <h2>Yummy Delicious African Delcacy</h2>
+          </div>
+          <div class="footer">
+              <img src="./images/chickenBurger.jpg" alt="Meal Image"
+              style="width: 200px; height: auto; padding: 30px;">
+              <img src="./images/beefBurger.jpg" alt="Meal Image"
+              style="width: 200px; height: auto; padding: 40px;">
+              <img src="./images/meal5.jpg" alt="Meal Image"
+              style="width: 200px; height: auto;">
+              <img src="./images/meal4.jpg" alt="Meal Image"
+              style="width: 200px; height: auto;">
+          </div>
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!----
+
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
             margin: 0;
             padding: 0;
-            background-image:url(./images/landing.jpg);
+            background-position: center;
         }
         header {
             padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #333;
+            background-color:palevioletred;
             color: white;
+            
         }
          nav a {
             color: white;
@@ -34,26 +741,40 @@
         section {
           padding: 20px;
           margin: 10px 0;
-          background-color: white;
+          background-color: navajowhite;
           box-shadow: 0, 4px, 8px rgba(0,0,0,0.1);
           border-radius: 10px;
         }
+        .header-section {
+            margin: 0px;
+            padding: 10px;
+            background-image:url(./images/landing.jpg);
+            /* height: 100vh; */
+            width: 100vw;
+            overlay: gray;
+
+
+        }
         .meal-type .meal, .div, .fast-food-drinks .items, .restaurants
      .restaurants  .order .order-item {
-        display: inline-block;
+        /* display: inline-block; */
         width: 200px;
         margin: 10px;
         padding: 10px;
-        border:1px solid #ddd;
+        border:1px solid white;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 8px rgba(48, 46, 46, 0.1);
         transition: background-color 0.3s, transform 0.3s;
         position: fixed;
         text-align: center;
     }
-     .meal-type .meal:hover, .fast-food-drinks .item:hover, .restaurants .restaurants:hover,
+    .meal{
+        display: flex;
+    }
+     .meal-
+     type .meal:hover, .fast-food-drinks .item:hover, .restaurants .restaurants:hover,
   .order .order-item:hover {
-                background-color: #ff7e5f;
+                background-color: #a6a4a3;
                 transform: scale(1.05);
     }
       .meal-type .meal:hover .name, .fast-food-drinks .item:hover .name, .restaurants .restaurants:hover .name, .order .order-item:hover .name {
@@ -75,8 +796,8 @@
         border-radius: 10px;
     }
      .delivery img {
-        width: 50%;
-        border-radius: 50%;
+        width: 30%;
+        border-radius: 30%;
     } 
     .ratings button {
         background-color: #4CAF50;
@@ -99,12 +820,12 @@
         background: url(./images/footer-illustration.png) no-repeat Center 
          center;
          background-size: cover;
-        color: black;
+        color: rgb(66, 6, 6);
     }
     .footer-logo  {
        width: 50px;
        margin: 0 10px;
-       color: black;
+       color: rgb(196, 17, 17);
     }
     .order-form {
        max-width: 400px;
@@ -149,13 +870,14 @@
         </nav>
 </header>
 
-    <secion class="header-section">
-        <h1>Welcome to Real-Time Restaurant Menu Listing Site</h1>
+    <secion class="header-section" style="display: block;height: 110vh;">
+        <h1 class="home-text" style="text-align: center; text-transform: capitalize; color: white;padding: 45px;">Welcome to Real-Time Restaurant Menu Listing Site</h1>
+
     </secion>
 
-    <section class="meal-type">
+    <section class="meal-type" style="display: block;">
         <h2>meal Types</h2>
-        <div>
+        <div class="items" style="display: flex;">
         <div class="meal">
             <img src="./images/hot pot.jpg.png" alt="hot pot.jpg.jpg" style="width: 40%; border-radius: 4px;">
            <p class="name">hot pot.jpg.png</p>
@@ -166,7 +888,7 @@
           <p class="name">food .jpg.jpg</p>
           <p>Delicious Meal</p>
           </div>
-          <!--Add more meals as needed-->
+          Add more meals as needed
     </section>
 
     <section class="fast-food-drinks">
@@ -177,28 +899,28 @@
             <p>Yummy Fast Food 1 Description</p>
             </div>
             <div class="item">
-                <img src="./images/drink1.jpg" alt="Drink 1" style="width: 40%; border-radius: 10px;">
+                <img src="./images/drink1.jpg" alt="Drink 1" style="width: 20%; border-radius: 1px;">
                 <p class="name">Drink 1</p>
                 <p>Refreshing Drink 1</p>
             </div>
-            <!--Add more fast foods and drinks as needed-->
+            Add more fast foods and drinks as needed
     </section>
 
     <section class="slideshow">
-          <h2>Fast Food, Drinks, chicken, and Rice</h2>
-          <img src="./images/meal4.jpg" alt="slideshow image 1">
+          <h2>Haburger</h2>
+          <img src="./images/cta-banner.png" alt="slideshow image 1">
     </section>
 <section class="Testemonials">
     <h2>.Customer Testemonials and Reviews</h2>
     <p>Testemonial 1: This is the best resturant I've ever visited!</p>
     <p>Testemonial 2: Amazing food and great services.</p>
-    <!--Add more testimonials as needed-->
+    Add more testimonials as needed
     </section>
 
     <section class="delivery">
        <h2>delivery Information</h2>
        <img src="./images/delivery-boy.svg" alt="Delivery Boy">
-       <p> Our delivery boys are always on time and ensure your food arrives hot and fresh.</p>
+       <p style="text-align: left;"> Our delivery boys are always on time and <br>ensure your food arrives hot and fresh.<br></p>
        <img src="./images/delivery-banner-bg.png" alt="delivery-banner-bg" style="width: 50%; border-radius: 1opx; margin-top: 10px;">
        <img src="./images/sale-shape-red.png" alt="sale-shape-red" style="width: 20%; border-radius: 10px; margin-top: 10px;">
     </section>
@@ -219,7 +941,7 @@
         <p class="name">rest.jpg.jpg</p>
         <p>Prestige</p>
     </div>
-    <!--Add more restaurants-->
+    Add more restaurants
 </section>
 
 <section class="order" id="order">
@@ -264,3 +986,46 @@
 
 </body>
 </html>
+<!--->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

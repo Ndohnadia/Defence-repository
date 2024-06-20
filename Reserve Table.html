@@ -3,119 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserve Table</title>
+    <title>Reservation Module</title>
     <style>
-   body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: linear-gradient(to right, #ff7e5f, #feb47b); /* captivating background*/
-   }
-   .container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-   }
-   .container h2 {
-    margin-bottom: 20px;
-   }
-   .btn {
-    display: inline-block;
-    margin: 10px;
-    padding:15px 25px;
-    font-size: 1em;
-    color: white;
-    background-color: #4CAF50;
-    border:none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-   }
-   .btn:hover {
-    background-color: #45a049;
-   }
-   .form-container {
-    display: none;
-    margin-top: 20px;
-    text-align: left;
-   }
-   .form-container form {
-    display: flex;
-    flex-direction: column;
-   }
-   .form-container form label {
-    margin: 10px 0 5px;
-   }
-   .form-container form input, .form-container form select {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-   }
-   .form-container form input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-   }
-     </style> 
-     <script>
-        function toggleForm() {
-            const formContainer =
-document.getElementById('form-container');
-       if (formContainer.style.display === 'none' || formContainer.style.display ==='') {
-           formContainer.style.display = 'block';
-       } else {
-            formContainer.style.display = 'none';
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
         }
-    }
-     </script>
-     </head>
-     <body>  
-       <div class="container">
-        <h2>Reserve Table</h2>
-        <button class="btn" onclick="toggleForm()">Select Restaurant</button>
-        <button class="btn" onclick="toggleForm()">Book Reservation</button>
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+        @media (max-width: 600px) {
+            .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Reservation Module</h2>
+        <div class="form-group">
+            <label for="restaurantSelect">Select Restaurant</label>
+            <select id="restaurantSelect" onchange="showReservationForm()">
+                <!-- Restaurant options will be dynamically populated -->
+            </select>
         </div>
-        <div id="form-container" class="form-container">
-            <form id="reservation-form">
-                <h3>Reservation Form</h3>
-                <label for="restaurant">Restaurant:</label>
-               <select id="restaurant" name="restaurant">
-                <option value="restaurant1">Restaurant 1</option>
-                <option value="restaurant2">Restaurant 2</option>
-                <!--Add more options needed-->
-               </select>
-               <label for="name">Name:</label>
-               <input type="text" id="name" name="name" required>
-               <label for="email">Email:</label>
-               <input type="email" id="email" required>
-               <label for="date">Date:</label>
-               <input type="date" id="date" name="date" required>
-               <label for="time">Time:</label>
-               <input type="time" id="time" name="time" required>
-               <label for="guests">Number of Guests:</label>
-               <input type="number" id="guests" name="guests" required>
-               <input type="submit" value="Reseve">
-            </form>
-            <form id="Payment-form"  style="margin-top: 20px;">
-                <h3>Payment Form</h3>
-                <label for="card-number">Card Number:</label>
-                <input type="text" id="card-number"  name="card-number" required>
-                <label for="expiry-date">Expiry Date:</label>
-                <input type="month" id="expiry-date" name="expiry-date" required>
-                <label for="cvv">CVV:</label>
-                <input type="text" id="cvv" name="cvv" required>
-                <input type="submit" value="pay">
-            </form>
+
+        <div id="reservationContainer" class="hidden">
+            <h3>Book a Reservation</h3>
+            <div class="form-group">
+                <label for="customerName">Name</label>
+                <input type="text" id="customerName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="customerEmail">Email</label>
+                <input type="email" id="customerEmail" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="reservationDate">Date</label>
+                <input type="date" id="reservationDate">
+            </div>
+            <div class="form-group">
+                <label for="reservationTime">Time</label>
+                <input type="time" id="reservationTime">
+            </div>
+            <div class="form-group">
+                <label for="reservationGuests">Number of Guests</label>
+                <input type="number" id="reservationGuests" min="1" value="1">
+            </div>
+            <button class="btn" onclick="showPaymentForm()">Proceed to Payment</button>
         </div>
+
+        <div id="paymentContainer" class="hidden">
+            <h3>Payment Details</h3>
+            <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" placeholder="Enter card number">
+            </div>
+            <div class="form-group">
+                <label for="cardExpiry">Expiration Date</label>
+                <input type="text" id="cardExpiry" placeholder="MM/YY">
+            </div>
+            <div class="form-group">
+                <label for="cardCVV">CVV</label>
+                <input type="text" id="cardCVV" placeholder="Enter CVV">
+            </div>
+            <button class="btn" onclick="processReservation()">Submit Payment</button>
+        </div>
+    </div>
+
+    <script>
+        const restaurants = [
+            { id: 1, name: "Njei Forbi" },
+            { id: 2, name: "TFC" },
+            { id: 3, name: "jAM ROCK" }
+        ];
+
+        function populateRestaurantOptions() {
+            const select = document.getElementById('restaurantSelect');
+            select.innerHTML = '';
+            restaurants.forEach(restaurant => {
+                const option = document.createElement('option');
+                option.value = restaurant.id;
+                option.textContent = restaurant.name;
+                select.appendChild(option);
+            });
+        }
+
+        function showReservationForm() {
+            document.getElementById('reservationContainer').classList.remove('hidden');
+            document.getElementById('paymentContainer').classList.add('hidden');
+        }
+
+        function showPaymentForm() {
+            document.getElementById('reservationContainer').classList.add('hidden');
+            document.getElementById('paymentContainer').classList.remove('hidden');
+        }
+
+        function processReservation() {
+            const restaurantId = document.getElementById('restaurantSelect').value;
+            const customerName = document.getElementById('customerName').value;
+            const customerEmail = document.getElementById('customerEmail').value;
+            const reservationDate = document.getElementById('reservationDate').value;
+            const reservationTime = document.getElementById('reservationTime').value;
+            const reservationGuests = document.getElementById('reservationGuests').value;
+            const cardNumber = document.getElementById('cardNumber').value;
+            const cardExpiry = document.getElementById('cardExpiry').value;
+            const cardCVV = document.getElementById('cardCVV').value;
+
+            alert(`Reservation for ${customerName} at Restaurant ID ${restaurantId} on ${reservationDate} at ${reservationTime} for ${reservationGuests} guests.\nPayment Details:\nCard Number: ${cardNumber}\nExpiry Date: ${cardExpiry}\nCVV: ${cardCVV}`);
+            // Implement reservation and payment processing logic here
+        }
+
+        window.onload = () => {
+            populateRestaurantOptions();
+        }
+    </script>
 </body>
 </html>

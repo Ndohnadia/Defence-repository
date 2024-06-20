@@ -3,197 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Menu</title>
+    <title>Menu Module</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-image: url('./images/food.jpg.jpg');
-            background-size: auto;
+            padding: 20px;
+            background-color: #f4f4f4;
         }
         .container {
-            width: 80%;
+            max-width: 800px;
             margin: auto;
-            overflow: hidden;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .restaurant-list, .menu-section, .reservation-form, .payment-form {
-            margin: 20px 0;
+        h2, h3 {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        .restaurant-list select, .restaurant-list button, .reservation-form input, .payment-form input, .Update-form input {
-            padding: 10px;
-            margin: 10px 0;
+        .form-group {
+            margin-bottom: 15px;
         }
-        .menu-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
         .menu-item {
+            background-color: #fff;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            margin-bottom: 10px;
             padding: 10px;
-            width: 30%;
-            margin: 10px;
-            text-align: center;
+            border-radius: 5px;
         }
         .menu-item img {
-            width: 100%;
-            border-radius: 5px;
+            max-width: 100px;
+            margin-bottom: 10px;
         }
-        .menu-item h4 {
-            margin: 10px 0;
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
         }
-        .menu-item button {
-            padding: 10px;
-            margin: 10px 5px;
+        .btn-delete {
+            background-color: #dc3545;
         }
-        
+        .hidden {
+            display: none;
+        }
+        @media (max-width: 600px) {
+            .btn, .btn-delete {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <div class="restaurant-list">
-        <h2>Select a Restaurant</h2>
-        <label for="restaurants">Choose a restaurant:</label>
-        <select id="restaurants">
-            <option value="restaurant1">TFC</option>
-            <option value="restaurant2">njeiforbi</option>
-            <option value="restaurant3">jamrock</option>
-            <!-- Add more restaurant options here -->
-        </select>
-        <button onclick="showRestaurantMenu()">View Menu</button>
-    </div>
-
-    <div id="menu" class="menu-section" style="display: none;">
-        <h2>Menu</h2>
-        <div id="restaurant1-menu" style="display: none;">
-            <div class="menu-item">
-                <img src="./images/meal1.jpg" alt="Meal 1">
-                <h4>Meal 1</h4>
-                <p>Description of Meal 1</p>
-                <span>$10</span>
-                <button onclick="Quantity('Meal 1')">Quantity</button>
-                <button onclick="processPayment('Meal 1')">Pay Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="./images/meal2.jpg" alt="Meal 2">
-                <h4>Meal 2</h4>
-                <p>Description of Meal 2</p>
-                <span>$12</span>
-                <button onclick="Quantity('Meal 2')">Quantity</button>
-                <button onclick="processPayment('Meal 2')">Pay Now</button>
-            </div> 
-            <!-- Add more menu items for Restaurant 1 here -->
+    <div class="container">
+        <h2>Menu Module</h2>
+        <div class="form-group">
+            <label for="restaurantSelect">Select Restaurant</label>
+            <select id="restaurantSelect" onchange="loadMenu()">
+                <!-- Restaurant options will be dynamically populated -->
+            </select>
         </div>
-        <div id="restaurant2-menu" style="display: none;">
-            <div class="menu-item">
-                <img src="./images/meal3.jpg" alt="Meal 3">
-                <h4>Meal 3</h4>
-                <p>Description of Meal 3</p>
-                <span>$15</span>
-                <button onclick="Quantity('Meal 3')">Quantity</button>
-                <button onclick="processPayment('Meal 3')">Pay Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="./images/meal4.jpg" alt="Meal 4">
-                <h4>Meal 4</h4>
-                <p>Description of Meal 4</p>
-                <span>$18</span>
-                <button onclick="Quantity('Meal 4')">Quantity</button>
-                <button onclick="processPayment('Meal 4')">Pay Now</button>
-            </div>
-            <!-- Add more menu items for Restaurant 2 here -->
+
+        <div id="menuContainer">
+            <h3>Menu</h3>
+            <!-- Menu items will be dynamically populated here -->
         </div>
-        <div id="restaurant3-menu" style="display: none;">
-            <div class="menu-item">
-                <img src="./images/meal5.jpg" alt="meal 5">
-                <h4>Meal 5</h4>
-                    <p>Description of Meal 5</p>
-                    <span>$20</span>
-                    <button onclick="Quantity('Meal 5')">Quantity</button>
-                    <button onclick="processPayment('Meal 5')">Pay Now</button>
+
+        <div id="orderContainer" class="hidden">
+            <h3>Order Summary</h3>
+            <div class="form-group">
+                <label for="orderItem">Item</label>
+                <input type="text" id="orderItem" readonly>
             </div>
-            <div class="menu-item">
-                <img src="./images/meal6.jpg" alt="meal 6">
-                <h4>meal 6</h4>
-                <p>Description of Meal 6</p>
-                <span>$19</span>
-                <button onclick="Quantity('Meal 6')">Quantity</button>
-                <button onclick="processPayment('Meal 6')">Pay Now</button>
-    </div>
-        <div id="Update Menu" class="Update-Menu-section" style="display: none;">
-            <h2>Update-Menu</h2>
-            
+            <div class="form-group">
+                <label for="orderPrice">Price</label>
+                <input type="number" id="orderPrice" readonly>
+            </div>
+            <div class="form-group">
+                <label for="orderQuantity">Quantity</label>
+                <input type="number" id="orderQuantity" min="1" value="1" onchange="updateTotal()">
+            </div>
+            <div class="form-group">
+                <label for="orderTotal">Total</label>
+                <input type="number" id="orderTotal" readonly>
+            </div>
+            <button class="btn" onclick="showPaymentForm()">Process Payment</button>
         </div>
-</div>
 
-    <div id="reservation" class="reservation-form" style="display: none;">
-        <h2>Reservation</h2>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
-            <label for="Contact">Contact:</label>
-            <input type="Contact" id="Contact" name="email" required><br>
-            <label for="date">Select date:</label>
-            <input type="date" id="date" name="date" required><br>
-            <label for="time">Select time:</label>
-            <input type="time" id="time" name="time" required><br>
-            <input type="submit" value="Reserve">
-        </form>
+        <div id="paymentContainer" class="hidden">
+            <h3>Payment Details</h3>
+            <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" placeholder="Enter card number">
+            </div>
+            <div class="form-group">
+                <label for="cardExpiry">Expiration Date</label>
+                <input type="text" id="cardExpiry" placeholder="MM/YY">
+            </div>
+            <div class="form-group">
+                <label for="cardCVV">CVV</label>
+                <input type="text" id="cardCVV" placeholder="Enter CVV">
+            </div>
+            <button class="btn" onclick="processPayment()">Submit Payment</button>
+        </div>
     </div>
 
-    <div id="payment" class="payment-form" style="display: none;">
-        <h2>Payment</h2>
-        <form>
-            <label for="cardNumber">Card Number:</label>
-            <input type="text" id="cardNumber" name="cardNumber" required><br>
-            <label for="expiryDate">Expiry Date:</label>
-            <input type="text" id="expiryDate" name="expiryDate" required><br>
-            <label for="cvv">CVV:</label>
-            <input type="text" id="cvv" name="cvv" required><br>
-            <input type="submit" value="Pay Now">
-        </form>
-    </div>
-</div>
+    <script>
+        const restaurants = [
+            { id: 1, name: "Njei Forbi", menu: [
+                { id: 1, name: "Pizza", description: "Delicious cheese pizza", price: 100, image: "Pizza" },
+                { id: 2, name: "Pasta", description: "Italian pasta with sauce", price: 1000, image: "Pasta" }
+            ]},
+            { id: 2, name: "TFC", menu: [
+                { id: 1, name: "Burger", description: "Juicy beef burger", price: 3000, image: "beef Burger" },
+                { id: 2, name: "fufucorn", description: "Delicous meal", price: 1500, image: "fufu corn" }
+            ]}
+        ];
+        let selectedRestaurant = null;
+        let selectedMenuItem = null;
 
-<script>
-    function showRestaurantMenu() {
-        var restaurant = document.getElementById("restaurants").value;
-        var menu = document.getElementById("menu");
-        menu.style.display = "block";
+        function populateRestaurantOptions() {
+            const select = document.getElementById('restaurantSelect');
+            select.innerHTML = '';
+            restaurants.forEach(restaurant => {
+                const option = document.createElement('option');
+                option.value = restaurant.id;
+                option.textContent = restaurant.name;
+                select.appendChild(option);
+            });
+        }
 
-        var restaurant1Menu = document.getElementById("restaurant1-menu");
-        var restaurant2Menu = document.getElementById("restaurant2-menu");
-        var restaurant3Menu = document.getElementById("restarant3-menu");
-    /*
-        restaurant1Menu.style.display = "none";
-        restaurant2Menu.style.display = "none";
-    */
+        function loadMenu() {
+            const restaurantId = document.getElementById('restaurantSelect').value;
+            selectedRestaurant = restaurants.find(r => r.id == restaurantId);
+            const menuContainer = document.getElementById('menuContainer');
+            menuContainer.innerHTML = '<h3>Menu</h3>';
+            selectedRestaurant.menu.forEach(item => {
+                const menuItem = document.createElement('div');
+                menuItem.className = 'menu-item';
+                menuItem.innerHTML = `
+                    <h4>${item.name}</h4>
+                    <p>${item.description}</p>
+                    <p><strong>Price:</strong> $${item.price}</p>
+                    ${item.image ? `<img src="${item.image}" alt="${item.name}">` : ''}
+                    <button class="btn" onclick="selectMenuItem(${item.id})">Order</button>
+                `;
+                menuContainer.appendChild(menuItem);
+            });
+        }
 
-        if (restaurant === "restaurant1") {
-            restaurant1Menu.style.display = "block";
-            restaurant2Menu.style.display = "none";
-        } else if (restaurant === "restaurant2") {
-            restaurant1Menu.style.display = "none";
-            restaurant2Menu.style.display = "block";
-    }
+        function selectMenuItem(itemId) {
+            selectedMenuItem = selectedRestaurant.menu.find(i => i.id == itemId);
+            document.getElementById('orderItem').value = selectedMenuItem.name;
+            document.getElementById('orderPrice').value = selectedMenuItem.price;
+            document.getElementById('orderQuantity').value = 1;
+            document.getElementById('orderTotal').value = selectedMenuItem.price;
+            document.getElementById('orderContainer').classList.remove('hidden');
+            document.getElementById('paymentContainer').classList.add('hidden');
+        }
 
-    function reserveTable(meal) {
-        var reservation = document.getElementById("reservation");
-        reservation.style.display = "block";
-    }
+        function updateTotal() {
+            const quantity = document.getElementById('orderQuantity').value;
+            const total = selectedMenuItem.price * quantity;
+            document.getElementById('orderTotal').value = total;
+        }
 
-    function processPayment(meal) {
-        var payment = document.getElementById("payment");
-        payment.style.display = "block";
-    }
-}
-</script>
+        function showPaymentForm() {
+            document.getElementById('paymentContainer').classList.remove('hidden');
+        }
 
+        function processPayment() {
+            const item = document.getElementById('orderItem').value;
+            const price = document.getElementById('orderPrice').value;
+            const quantity = document.getElementById('orderQuantity').value;
+            const total = document.getElementById('orderTotal').value;
+            const cardNumber = document.getElementById('cardNumber').value;
+            const cardExpiry = document.getElementById('cardExpiry').value;
+            const cardCVV = document.getElementById('cardCVV').value;
+
+            alert(`Processing payment for ${quantity} ${item}(s) at $${total}\nCard Number: ${cardNumber}\nExpiry Date: ${cardExpiry}\nCVV: ${cardCVV}`);
+            // Implement payment processing logic here
+        }
+
+        window.onload = () => {
+            populateRestaurantOptions();
+        }
+    </script>
 </body>
 </html>
-
-      
-      

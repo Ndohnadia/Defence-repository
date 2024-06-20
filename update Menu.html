@@ -6,104 +6,248 @@
     <title>Update Menu</title>
     <style>
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f0f8ff;
+            padding: 20px;
+            background-color: #f4f4f4;
         }
         .container {
-            background: white;
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: 80%;
-            margin-top: 20px;
-            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
-        h2 {
-            color:#333;
+        h2, h3 {
+            text-align: center;
             margin-bottom: 20px;
         }
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
-        label {
+        .form-group label {
             display: block;
             margin-bottom: 5px;
-            font-weight: bold;
         }
-        select, input[type="text"], input[type="file"]  {
+        .form-group select, .form-group input {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border:1px solid #ccc;
-        }  
-        .btn {
-            background-color: #ACAF50;
-            color: white;
-            padding: 10px 20px;
-            border:none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 10px;
-        }
-        .btn:hover {
-            background-color: #45a049;
-        }
-        .menu-section {
-            margin-top: 20px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
         .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background-color: #fff;
+            border: 1px solid #ddd;
             margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
         }
-        .menu-item input[type="text"] {
-            width: 80%;
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            margin-right: 10px;
         }
-        </style>
-        <script>
-            function addMenuItem() {
-                const menuSection = 
-    document.getElementById('menu-section');
-         const  newItem = document.createElement('div');
-         newItem.className = 'menu-item';
-         newItem.innerHTML = `
-               <input type="text" placeholder="Meal Name" required>
-               <input type="file" accepts="images/*" required>
-                  `;
+        .btn-delete {
+            background-color: #dc3545;
+        }
+        @media (max-width: 600px) {
+            .btn, .btn-delete {
+                width: 100%;
+                margin-bottom: 10px;
             }
-            menuSection.appenChild(newItem);
-        </script>
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h2>Update Menu</h2>
         <div class="form-group">
-            <label for="resturant">Select Restuarant:</label>
-            <select id="restaurant" name="restaurant">
-            <option value="restaurant1">Restaurant 1</option>
-            <option value="restaurant2">Restaurant 2</option>
-            <!--Add more Restaurants-->
-        </select>
+            <label for="restaurantSelect">Select Restaurant</label>
+            <select id="restaurantSelect" onchange="loadRestaurantDetails()">
+                <!-- Restaurant options will be dynamically populated -->
+            </select>
         </div>
-        <div id="menu-section" class="menu-section">
-        <h3>Menu Items</h3>
-        <div class="menu-item">
-            <input type="text" placeholder="Meal Name" required>
-            <input type="file" accept="image/*" required>
-        </div>
-        <!--More menu items can be added dynamically-->
 
+        <div id="restaurantProfileContainer">
+            <h3>Update Restaurant Profile</h3>
+            <div class="form-group">
+                <label for="restaurantName">Restaurant Name</label>
+                <input type="text" id="restaurantName" placeholder="Enter restaurant name">
+            </div>
+            <div class="form-group">
+                <label for="restaurantDescription">Restaurant Description</label>
+                <input type="text" id="restaurantDescription" placeholder="Enter restaurant description">
+            </div>
+            <div class="form-group">
+                <label for="restaurantImage">Upload Image</label>
+                <input type="file" id="restaurantImage">
+            </div>
+            <button class="btn" onclick="updateRestaurantProfile()">Update Profile</button>
         </div>
-        <button class="btn" onclick="addMenuItem()">Add Another Meal</button>
-          <button class="btn">Upload Menu</button>
+
+        <div id="menuManagementContainer">
+            <h3>Manage Menu</h3>
+            <div class="form-group">
+                <label for="menuItemName">Item Name</label>
+                <input type="text" id="menuItemName" placeholder="Enter item name">
+            </div>
+            <div class="form-group">
+                <label for="menuItemPrice">Item Price</label>
+                <input type="number" id="menuItemPrice" placeholder="Enter item price">
+            </div>
+            <div class="form-group">
+                <label for="menuItemDescription">Item Description</label>
+                <input type="text" id="menuItemDescription" placeholder="Enter item description">
+            </div>
+            <div class="form-group">
+                <label for="menuItemQuantity">Quantity</label>
+                <input type="number" id="menuItemQuantity" min="1" placeholder="Enter item quantity">
+            </div>
+            <div class="form-group">
+                <label for="menuItemImage">Upload Image</label>
+                <input type="file" id="menuItemImage">
+            </div>
+            <button class="btn" onclick="addOrUpdateMenuItem()">Add/Update Item</button>
+            <button class="btn btn-delete" onclick="deleteMenuItem()">Delete Item</button>
+        </div>
+
+        <div id="menuContainer">
+            <h3>Current Menu</h3>
+            <!-- Menu items will be dynamically populated here -->
+        </div>
     </div>
+
+    <script>
+        const restaurants = [
+            { id: 1, name: "jAM ROCK", description: "A great place to dine.", image: "", menu: [
+                { id: 1, name: "Pizza", description: "Delicious cheese pizza", price: 10, quantity: 20, image: "" },
+                { id: 2, name: "Pasta", description: "Italian pasta with sauce", price: 12, quantity: 15, image: "" }
+            ]},
+            { id: 2, name: "Njei Forbi", description: "Fresh and healthy meals.", image: "", menu: [
+                { id: 1, name: "Burger", description: "Juicy beef burger", price: 8, quantity: 25, image: "" },
+                { id: 2, name: "Ordermeal2", description: "delious meal", price: 6, quantity: 30, image: "" }
+            ]}
+        ];
+        let selectedRestaurant = null;
+        let selectedMenuItem = null;
+
+        function populateRestaurantOptions() {
+            const select = document.getElementById('restaurantSelect');
+            select.innerHTML = '';
+            restaurants.forEach(restaurant => {
+                const option = document.createElement('option');
+                option.value = restaurant.id;
+                option.textContent = restaurant.name;
+                select.appendChild(option);
+            });
+        }
+
+        function loadRestaurantDetails() {
+            const restaurantId = document.getElementById('restaurantSelect').value;
+            selectedRestaurant = restaurants.find(r => r.id == restaurantId);
+            document.getElementById('restaurantName').value = selectedRestaurant.name;
+            document.getElementById('restaurantDescription').value = selectedRestaurant.description;
+            loadMenu();
+        }
+
+        function loadMenu() {
+            const menuContainer = document.getElementById('menuContainer');
+            menuContainer.innerHTML = '<h3>Current Menu</h3>';
+            selectedRestaurant.menu.forEach(item => {
+                const menuItem = document.createElement('div');
+                menuItem.className = 'menu-item';
+                menuItem.innerHTML = `
+                    <h4>${item.name}</h4>
+                    <p>${item.description}</p>
+                    <p><strong>Price:</strong> $${item.price}</p>
+                    <p><strong>Quantity:</strong> ${item.quantity}</p>
+                    ${item.image ? `<img src="${item.image}" alt="${item.name}" width="100">` : ''}
+                    <button class="btn" onclick="editMenuItem(${item.id})">Edit</button>
+                `;
+                menuContainer.appendChild(menuItem);
+            });
+        }
+
+        function editMenuItem(itemId) {
+            selectedMenuItem = selectedRestaurant.menu.find(i => i.id == itemId);
+            document.getElementById('menuItemName').value = selectedMenuItem.name;
+            document.getElementById('menuItemPrice').value = selectedMenuItem.price;
+            document.getElementById('menuItemDescription').value = selectedMenuItem.description;
+            document.getElementById('menuItemQuantity').value = selectedMenuItem.quantity;
+        }
+
+        function addOrUpdateMenuItem() {
+            const name = document.getElementById('menuItemName').value;
+            const price = document.getElementById('menuItemPrice').value;
+            const description = document.getElementById('menuItemDescription').value;
+            const quantity = document.getElementById('menuItemQuantity').value;
+            const imageInput = document.getElementById('menuItemImage');
+            const image = imageInput.files.length > 0 ? URL.createObjectURL(imageInput.files[0]) : '';
+
+            if (selectedMenuItem) {
+                selectedMenuItem.name = name;
+                selectedMenuItem.price = price;
+                selectedMenuItem.description = description;
+                selectedMenuItem.quantity = quantity;
+                if (image) selectedMenuItem.image = image;
+                alert('Menu item updated successfully');
+            } else {
+                const newItem = { id: Date.now(), name, price, description, quantity, image };
+                selectedRestaurant.menu.push(newItem);
+                alert('Menu item added successfully');
+            }
+
+            loadMenu();
+            clearMenuForm();
+        }
+
+        function deleteMenuItem() {
+            if (selectedMenuItem) {
+                selectedRestaurant.menu = selectedRestaurant.menu.filter(item => item.id !== selectedMenuItem.id);
+                alert('Menu item deleted successfully');
+                loadMenu();
+                clearMenuForm();
+            } else {
+                alert('Select an item to delete');
+            }
+        }
+
+        function updateRestaurantProfile() {
+            const name = document.getElementById('restaurantName').value;
+            const description = document.getElementById('restaurantDescription').value;
+            const imageInput = document.getElementById('restaurantImage');
+            const image = imageInput.files.length > 0 ? URL.createObjectURL(imageInput.files[0]) : '';
+
+            if (selectedRestaurant) {
+                selectedRestaurant.name = name;
+                selectedRestaurant.description = description;
+                if (image) selectedRestaurant.image = image;
+                alert('Restaurant profile updated successfully');
+            } else {
+                alert('Select a restaurant to update');
+            }
+        }
+
+        function clearMenuForm() {
+            document.getElementById('menuItemName').value = '';
+            document.getElementById('menuItemPrice').value = '';
+            document.getElementById('menuItemDescription').value = '';
+            document.getElementById('menuItemQuantity').value = '';
+            document.getElementById('menuItemImage').value = '';
+            selectedMenuItem = null;
+        }
+
+        window.onload = () => {
+            populateRestaurantOptions();
+        }
+    </script>
 </body>
 </html>
